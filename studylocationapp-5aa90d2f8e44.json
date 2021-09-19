@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "studylocationapp",
+  "private_key_id": "5aa90d2f8e44849690f5bdad56d62688d91cb1d9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCkbN7kPKGfFq5H\nWJd4y/LhHeUE1gj3Am7yTPSWqgNRNXdIk4/Di45PYQ2PL4CS8A6N4DP9ZhgscPVI\nOY0eiMqIv2AXktpZIzqBJ/YmDarm/wS0lO8rzPFytfdGmpHue5fHy63ljM61RI5E\n7u5Ma76lzPTSyhoD40op9sK1Cay2wEsGvkF6MD4ynpclHpgBhrMwiPufB3W+JdV/\nrl6RDOlx/DYXhUd4bsPYxZJO82Jsjqg9icoUxUha0biEDXymhHEg/mvYoBViybCZ\ndQBi3YrrMdMpUVnd+TwXDiq9Jl4dNO2tGpJwvK5F6LE0syT0zEyrlKhuX1dbuoOu\nRiBnisXRAgMBAAECggEAB6tU/tP90o6mGgl9pd1BcBL1uTLbNTDwXYM4ZK9REKB2\noV8nSql/kvVFws17k574gXvugN3FDTbxlz5T9j4kJZpjkDCXLabb1jq3xlDx4pdi\nL/gYax8X41ADKiW7M81LqD6NrGd+cWxdWcVuk7LyMAfuIseEIh/1DXMHOZbWGaoC\n+1eo4NWW8/mK6ACF6M5z4/ItDtQTWetpo+aAlm07uyo4GGjJrlpndEPjCrduL5CS\nhBmJKgmNFnd7HqcdOu3YDK3+Mm0sRNC+GmMB8zLm/ysbr4vuQ6+vx7P4M65j1EjN\n7sSK+QcU5vJ8C8a2ARSmiUg3fEtaFXfClVaso7tzCQKBgQDSWBiNBim1vhpOCW2F\nJUbKra6CGw73SHn0sn9YjAs8FlFJ9seZf4fdXdmfYKCrsoVcTsVlKIGnene9/rpW\nqfa2TFpf8pNR7u2PqbzYrABcVyVE+J6oVW/oog1sVItal37NbLss2apzvlj4rB3J\n9PpYABDWTTMOtViQ9+lE3hlPZQKBgQDIHUPUCkxBjt6TGEACSvJQdp7uLKdJUp1/\nIGNdw6Spw/bqLVAPuIyjLOkwAGoryoptar/9R7Yra4TZhv59e/7/x7ntvhl9mELH\n+PbPuJRHJu6gz5kKegKtjMexOEajUxNGr2izVEO+KcKx/k9VZ9zRrvSMrLVxfdko\nSb/csHKj/QKBgCU7Ep1jid5xV5aYdJosjusw8sJ0p6F9Ypi9P20c3KA2Ew1UcN/q\ngtHb2rkrEUVSw+giyS2ujcRnGOq4O6M7Uj/SI+z3sru93q6fDJ4NU8MEacRbfTmu\nZbB3foi+LixKxFb39+loXZM/DeB2Fo+4nNcWq+RCpdbkoliGiPN3nGNBAoGAQT8J\ndoFFC7sBZwRpGlZFW2bRuuZkRMvi/igZPeEkNxXl08Sibf3GHQ3vme8Iru6C49oC\nbxqKku2jiykwoMllAxCj1pg8x251l63dCy0ra2eONnB5faj6ZouYMHggz++uQUW/\n5Xh7/eyvxkkcpMQQg21/3r4RCsf1neUt4U7GkiECgYB1BcuMlPILyFq72Zq0n36S\nQBoZi9XpmSr6th5dQJJdot7GAzQlMBh/HYwZUnkoXpOSC9fQraxAyI1lqzie5R1s\nmUbguX/nL6MIARJNgGBr6K3infVKTLtQ2Zyr95YF5NgeEaNaU9oJeJ3FPiIT66Wg\n8b13QWp7OXQWKtTHPswd0g==\n-----END PRIVATE KEY-----\n",
+  "client_email": "studylocationapp@studylocationapp.iam.gserviceaccount.com",
+  "client_id": "107401701414978745923",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/studylocationapp%40studylocationapp.iam.gserviceaccount.com"
+}

@@ -1,3 +1,5 @@
+from oauth2client.service_account import ServiceAccountCredentials
+import gspread
 import plotly.offline as py  # (version 4.4.1)
 import dash  # (version 1.0.0)
 import plotly.graph_objs as go
@@ -7,13 +9,26 @@ import dash_core_components as dcc
 import dash_table
 import numpy as np
 import pandas as pd
+
 mapbox_access_token = 'pk.eyJ1IjoiZXJpeXNkIiwiYSI6ImNrdHE1MDNoYjBzNzkyd3AzZGRibmZxZ3IifQ.H3yEfcNx_l80YR5XLGNAAw'
 
+# API IMPORTS
+scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/spreadsheets',
+         "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
+creds = ServiceAccountCredentials.from_json_keyfile_name(
+    "studylocationapp-5aa90d2f8e44.json", scope)
+client = gspread.authorize(creds)
+sheet = client.open("studylocationapp").sheet1  # Open the spreadhseet
+data = sheet.get_all_records()  # Get a list of all records
 
+names = [item[0] for item in sheet.batch_get(('B2:B',))[0]]
+lats = [item[0] for item in sheet.batch_get(('C2:C',))[0]]
+longs = [item[0] for item in sheet.batch_get(('D2:D',))[0]]
+addresses = [item[0] for item in sheet.batch_get(('E2:E',))[0]]
+
+# app settings
 df = pd.read_csv("finalrecycling.csv")
-
 app = dash.Dash(__name__)
-
 blackbold = {'color': 'black', 'font-weight': 'bold'}
 
 app.layout = html.Div([
@@ -21,20 +36,20 @@ app.layout = html.Div([
     # Map_legen + Borough_checklist + Recycling_type_checklist + Web_link + Map
     html.Div([
         html.Div([
-            # Map-legend
-            html.Ul([
-                html.Li("Compost", className='circle', style={'background': '#ff00ff', 'color': 'black',
-                    'list-style': 'none', 'text-indent': '17px'}),
-                html.Li("Electronics", className='circle', style={'background': '#0000ff', 'color': 'black',
-                                                                  'list-style': 'none', 'text-indent': '17px', 'white-space': 'nowrap'}),
-                html.Li("Hazardous_waste", className='circle', style={'background': '#FF0000', 'color': 'black',
-                                                                      'list-style': 'none', 'text-indent': '17px'}),
-                html.Li("Plastic_bags", className='circle', style={'background': '#00ff00', 'color': 'black',
-                                                                   'list-style': 'none', 'text-indent': '17px'}),
-                html.Li("Recycling_bins", className='circle',  style={'background': '#824100', 'color': 'black',
-                                                                      'list-style': 'none', 'text-indent': '17px'}),
-            ], style={'border-bottom': 'solid 3px', 'border-color': '#00FC87', 'padding-top': '6px'}
-            ),
+            # Map-legend MAYBE WE NEED A LEGEND FOR EVERY BUILDING
+            # html.Ul([
+            #     html.Li("Compost", className='circle', style={'background': '#ff00ff', 'color': 'black',
+            #         'list-style': 'none', 'text-indent': '17px'}),
+            #     html.Li("Electronics", className='circle', style={'background': '#0000ff', 'color': 'black',
+            #                                                       'list-style': 'none', 'text-indent': '17px', 'white-space': 'nowrap'}),
+            #     html.Li("Hazardous_waste",  className='circle', style={'background': '#FF0000', 'color': 'black',
+            #                                                            'list-style': 'none', 'text-indent': '17px'}),
+            #     html.Li("Plastic_bags", className='circle', style={'background': '#00ff00', 'color': 'black',
+            #                                                        'list-style': 'none', 'text-indent': '17px'}),
+            #     html.Li("Recycling_bins", className='circle',  style={'background': '#824100', 'color': 'black',
+            #                                                           'list-style': 'none', 'text-indent': '17px'}),
+            # ], style={'border-bottom': 'solid 3px', 'border-color': '#00FC87', 'padding-top': '6px'}
+            # ),
 
             # Borough_checklist
             html.Label(children=['Borough: '], style=blackbold),
@@ -93,8 +108,8 @@ def update_figure(chosen_boro, chosen_recycling):
 
     # Create figure
     locations = [go.Scattermapbox(
-        lon=df_sub['longitude'],
-        lat=df_sub['latitude'],
+        lon=longs,
+        lat=lats,
         mode='markers',
         marker={'color': df_sub['color']},
         unselected={'marker': {'opacity': 1}},
@@ -112,18 +127,18 @@ def update_figure(chosen_boro, chosen_recycling):
             clickmode='event+select',
             hovermode='closest',
             hoverdistance=2,
-            title=dict(text="Where to Recycle My Stuff?",
-                       font=dict(size=50, color='green')),
+            title=dict(text="Study Space at UofT",
+                       font=dict(size=50, color='blue')),
             mapbox=dict(
                 accesstoken=mapbox_access_token,
-                bearing=25,
+                bearing=-17,
                 style='light',
                 center=dict(
-                    lat=40.80105,
-                    lon=-73.945155
+                    lat=43.66416274156958,
+                    lon=-79.39227603268147
                 ),
-                pitch=40,
-                zoom=11.5
+                pitch=30,
+                zoom=14.5
             ),
         )
     }
