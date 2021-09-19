@@ -73,6 +73,18 @@ app.layout = html.Div([
     ], className='row'
     ),
 
+    html.Div([dcc.Dropdown(
+        id='demo-dropdown',
+        options=[
+            {'label': location} for location in set(names)
+        ],
+        value=''
+    ),
+        html.Button('Check In', id='checkin', n_clicks=0),
+        html.Button('Check Out', id='checkout', n_clicks=0)],
+        style={"align": "center", "justify": "center"}
+    ),
+
 ], className='ten columns offset-by-one'
 )
 
